@@ -1,0 +1,12 @@
+{%extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}	
+
+        <div class="post">
+       			<h2 class="post-title">{{post.title}}</h2>
+       			<p>by {{post.author}} on {{post.published_date}}</p>
+				<div class="post-body">{{post.text|safe}}</div>
+        </div>
+
+{% endblock %}
