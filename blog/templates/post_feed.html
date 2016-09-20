@@ -1,0 +1,31 @@
+{%extends 'base.html' %}
+{% block content %}	
+		{% for post in q_set %}
+       <div class="post">
+       			<h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+       			<p>by {{post.author}} on {{post.published_date}}</p>
+				<div class="post-body">{{post.text|safe|truncatechars_html:200}}</div>
+				{% if post.tags != None %}
+				<div class="post-tags">Tags: <a href="{% url 'tag_filter' tage=post.tags %}">{{post.tags}}</a></div>
+				{%endif%}
+				<button class="btn btn-default readmore"><a href="{% url 'post_detail' pk=post.pk %}">Read more</a></button> <!-- put pk in the url pattern named post_detail -->
+				<hr>
+       </div>
+       {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if q_set.has_previous %}
+            <a href="?page={{ q_set.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ q_set.number }} of {{ q_set.paginator.num_pages }}.
+        </span>
+
+        {% if q_set.has_next %}
+            <a href="?page={{ q_set.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

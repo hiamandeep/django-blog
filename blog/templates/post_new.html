@@ -1,16 +1,18 @@
+<style>
+	.sidebar{
+		display: none;
+	}
+</style>
 {% extends 'base.html' %}
 
 {% block content %}
     <h1>Add New Post</h1>
     <form method="POST">{% csrf_token %}
-        {{form.title}}
-        
+        <!-- {{form.title}} -->
         {% load wysiwyg %}
 		{% wysiwyg_setup %}
-        {{form.text}}
+        {{form.as_p}}
         {% wysiwyg_editor "id_text" %}
-
-        <button type="submit">Publish</button>
+        <button class="btn btn-primary" style="margin-top:15px;" type="submit">Publish</button>
     </form>
-
 {% endblock %}
