@@ -8,14 +8,14 @@
 				{% if post.tags != None %}
 				<div class="post-tags">Tags: <a href="{% url 'tag_filter' tage=post.tags %}">{{post.tags}}</a></div>
 				{%endif%}
-				<button class="btn btn-default readmore"><a href="{% url 'post_detail' pk=post.pk %}">Read more</a></button> <!-- put pk in the url pattern named post_detail -->
+				<button class="btn btn-default btn-sm readmore"><a href="{% url 'post_detail' pk=post.pk %}">Read more</a></button> <!-- put pk in the url pattern named post_detail -->
 				<hr>
        </div>
        {% endfor %}
 <div class="pagination">
-    <span class="step-links">
+    <ul class="step-links pager"> <!-- bootstrap class pager -->
         {% if q_set.has_previous %}
-            <a href="?page={{ q_set.previous_page_number }}">previous</a>
+            <li><a href="?page={{ q_set.previous_page_number }}">previous</a></li>
         {% endif %}
 
         <span class="current">
@@ -23,9 +23,9 @@
         </span>
 
         {% if q_set.has_next %}
-            <a href="?page={{ q_set.next_page_number }}">next</a>
+            <li><a href="?page={{ q_set.next_page_number }}">next</a></li>
         {% endif %}
-    </span>
+    </ul>
 </div>
 
 {% endblock %}
