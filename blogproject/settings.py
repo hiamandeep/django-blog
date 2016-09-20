@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'django_wysiwyg',
     'ckeditor',
-    'disqus',
-    'django.contrib.sites', #add this to solve the runtime error after putting disqus in installed apps
+    # 'django.contrib.sites', 
 
 ]
 

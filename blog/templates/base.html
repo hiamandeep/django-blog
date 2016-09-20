@@ -4,7 +4,9 @@
         <title>My Blog</title>
         <link rel="stylesheet" href="{% static 'css/sticky-footer-navbar.css' %}">  
         
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">  
+
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         
             <!--for responsiveness-->
@@ -13,15 +15,7 @@
     </head>
     <body>
 
-
-
-
-
-
-
-
-
-
+<!-- fb comments plugin -->
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -30,10 +24,7 @@
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=1363004167049233";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-
+<!-- /fb comments plugin -->
 
 
     <div class="container">  
@@ -69,10 +60,8 @@
     </div>
     </div>
 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script id="dsq-count-scr" src="//localhost-oudlolbslq.disqus.com/count.js" async></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     
     </body>
     

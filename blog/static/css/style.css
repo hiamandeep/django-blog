@@ -30,7 +30,7 @@
 .footer {
 	background-color: #333;
 	color:#fff;
-	padding: 5px;
+	padding: 15px 5px;
 	text-align: center;
 	margin-top: 25px;
 }
@@ -57,6 +57,7 @@ body{
 
 .post h2 {
 	color:green;
+    text-transform: uppercase;
 }
 
 .post-body{
@@ -81,10 +82,16 @@ body{
 
 .post-tags{
 	
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 .pagination{
     margin: 0 auto;
     width: 100%;
+}
+
+.latest-posts li {
+    font-weight: bold;
+    font-size: 17px;
+    padding: 5px;
 }
