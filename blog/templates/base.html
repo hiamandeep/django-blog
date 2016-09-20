@@ -2,17 +2,87 @@
 <html>
     <head>
         <title>My Blog</title>
+        <link rel="stylesheet" href="{% static 'css/sticky-footer-navbar.css' %}">  
+        
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        
+            <!--for responsiveness-->
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+
     </head>
     <body>
+
+
+
+
+
+
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=1363004167049233";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+
+    <div class="container">  
+
         <div class="header">
             <a href="{% url 'post_new' %}"></a>
             <h1><a href="/">My Blog</a></h1>
-        </div>
-			
-	{% block content %}
-  {% endblock %}
-			
 
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Subscribe</a></li>
+                <li><a href="#">About</a></li>
+                {% if user.is_authenticated %}
+                <li style="float:right"><a href="{% url 'post_new' %}">New Post</a></li>
+                {% endif %}
+
+            </ul>
+        </nav>
+
+        </div>
+  
+    <div class="row main-content">
+        <div class="col-md-8">		
+        	{% block content %}
+            {% endblock %}
+    	</div>
+
+        <div class="col-md-4 sidebar">
+            <h2>Sidebar</h2>
+            {% include 'latest_posts.html'%}     
+        </div>	
+    </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//localhost-oudlolbslq.disqus.com/count.js" async></script>
+    
     </body>
+    
+    <div class="footer-space">
+        
+    </div>
+    
+    <footer class="footer">
+      <p>&copy; All rights reserved </p>
+    </footer>
+
 </html>

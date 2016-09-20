@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'blog',
     'django_wysiwyg',
     'ckeditor',
+    'disqus',
+    'django.contrib.sites', #add this to solve the runtime error after putting disqus in installed apps
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -126,3 +129,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 DJANGO_WYSIWYG_FLAVOR = "ckeditor"
+
+
+
+DISQUS_API_KEY = 'CMuK1gn4GFYkO96b7yCllDa1Bt0O3SigctTOiibvIZb5QL1xWZHmuVUQB4RpM7K7'
+DISQUS_WEBSITE_SHORTNAME = 'localhost-oudlolbslq'

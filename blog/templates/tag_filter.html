@@ -1,0 +1,18 @@
+<!-- tag based filtering -->
+{%extends 'base.html' %}
+{% block content %}	
+
+		{% for post in posts %}
+		{% if tage == post.tags  %}
+       <div class="post">
+       			<h2 class="post-title"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+       			<p>by {{post.author}} on {{post.published_date}}</p>
+				<div class="post-body">{{post.text|safe|truncatechars_html:200}}</div>
+				<div class="post-tags">Tags: <a href="{% url 'tag_filter' tage=post.tags %}">{{post.tags}}</a></div>
+				<button class="btn btn-default readmore"><a href="{% url 'post_detail' pk=post.pk %}">Read more</a></button>
+				<hr>
+       </div>
+       {% endif %}
+       {% endfor %}
+
+{% endblock %}

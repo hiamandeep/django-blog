@@ -1,0 +1,6 @@
+<div class="latest_posts">
+	<h3>Recent Posts</h3>
+	{% for post in posts|slice:":7" %}
+		<li><a href="{% url 'post_detail' pk=post.pk %}">{{post.title|linebreaks}}</a></li>
+	{% endfor %}
+</div>
