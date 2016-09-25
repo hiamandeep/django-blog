@@ -5,6 +5,7 @@ from .forms import PostForm
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -44,7 +45,7 @@ def post_detail(request,pk):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date') #just for recent posts in the sidebar
 	return render(request,'post_detail.html',{'post':post,'posts':posts})
 
-
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -58,7 +59,7 @@ def post_new(request):
         form = PostForm()
     return render(request, 'post_new.html', {'form': form})
 
-
+@login_required
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
