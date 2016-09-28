@@ -129,7 +129,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DJANGO_WYSIWYG_FLAVOR = "ckeditor"
 
-
-
-DISQUS_API_KEY = 'CMuK1gn4GFYkO96b7yCllDa1Bt0O3SigctTOiibvIZb5QL1xWZHmuVUQB4RpM7K7'
-DISQUS_WEBSITE_SHORTNAME = 'localhost-oudlolbslq'
+LOGIN_REDIRECT_URL = '/' #redirect to home page after login (template admin) instead of account/profile  

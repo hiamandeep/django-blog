@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from . import views
+import django.contrib.auth.views
 
 urlpatterns = [
 	url(r'^$', views.post_feed, name='post_feed'),
@@ -8,5 +9,7 @@ urlpatterns = [
 	url(r'^post/new$',views.post_new,name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
     url(r'^tag/(?P<tage>[\w\-]+)/$', views.tag_filter, name='tag_filter'), #the regex patten should be valid
+    url(r'^login/$', django.contrib.auth.views.login, name='login'),
+
 
 ]
